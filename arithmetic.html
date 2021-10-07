@@ -91,9 +91,7 @@ function resolveForm (){
 
         <input type="radio" id="divide" name="operation"   
            value="divide" onclick="processRadio()">
-        <label for="divide">/</label><br>
-
-        
+        <label for="divide">/</label><br>        
       </form>
 
       <p id="Operations">After Arithmetic Operations</p>
@@ -119,8 +117,6 @@ function resolveForm (){
             else if(document.getElementById("divide").checked){
                 output= base/exponent;
             }
-
-
             updated.innerHTML="Output of the operation are: " + output;
           }
 

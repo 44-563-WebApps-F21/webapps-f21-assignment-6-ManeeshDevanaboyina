@@ -67,17 +67,44 @@ function resolveForm (){
         let output=document.getElementById("Output")
         if (value) {
                 my_car = { electriccar, havingAc, havingGps }
+                my_car = JSON.stringify(my_car)
+                output.innerHTML = my_car
+                my_car = JSON.parse(my_car)
             }
             else {
-                my_car = { electriccar, havingAc, havingGps }
+                my_car = { electriccar, havingAc, havingGps}
+                output.innerHTML = "Kindly confirm the values"
             }
-            my_car = JSON.stringify(my_car)
-            output.innerHTML = my_car
-            my_car = JSON.parse(my_car)
+
         }
 
+    </script>
 
-    
+<form>
+    <label for="property">Enter a property</label>
+    <input id="property" type="text" value="color"> <br>
+
+    <label for="value">Enter a Value</label>
+    <input id="value" type="text"> <br>
+
+    <input type="button" onclick="updateCar()" value="Update the Car">
+</form>
+
+<p id="output">The answer gets updated here.</p>
+
+<script>
+
+    function updateCar() {
+        Property = document.getElementById("property").value
+        Values = document.getElementById("value").value
+        Output = document.getElementById("output")
+        let my_car = "";
+        my_car = Property + " : " + Values
+        
+        Output.innerHTML = "Property of the car and its value is- " + my_car;
+    }
+
+
 
 </script>
 
