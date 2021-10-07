@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+ <head>
+     <title>CheckBoxes JS</title>
+ </head>
+<body>
+
+<h1>Devanaboyina Maneesh orders a car</h1>
+
+
+
+<form>
+    <label for="form1_age">What is your age </label>
+    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
+
+    <label for="form1_nick">What is your nickname </label>
+    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
+
+    <input type="button" onclick="resolveForm()" value="Get values from form">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+
+function resolveForm (){
+    console.log("Getting form values")
+    age = document.getElementById("form1_age").value
+    nick = document.getElementById("form1_nick").value
+    confirmed = confirm("Are these the values? "+age+" and "+nick)
+    
+    out = document.getElementById("result")
+    if(confirmed){
+        out.innerHTML = "Values were confirmed"
+    } else {
+        out.innerHTML = "Values were not confirmed"
+    }
+}
+</script>
+
+<form>
+     
+
+    <label for=form1_electric>electric</label>
+    <input type="checkbox" name="electriccar" value="electric" id="electric"><br>
+
+    <label for=form1_ac>ac</label>
+    <input type="checkbox" name="accar" value="ac" id="ac"><br>
+
+    <label for=form1_gps>gps</label>
+    <input type="checkbox" name="gpscar" value="gps" id="gps"><br>
+
+    <input type="button" onclick="ordercar()" value="Order a car">
+</form>
+
+<p id="Output">Car is having</p>
+
+<script>
+    let my_car={};
+    function ordercar(){
+        my_car={};
+        electriccar = document.getElementById("electric").checked
+        havingAc = document.getElementById("ac").checked
+        havingGps = document.getElementById("gps").checked
+        value = confirm("The values are " + electriccar + ", " + havingAc + " and " + havingGps)
+        let output=document.getElementById("Output")
+        if (value) {
+                my_car = { electriccar, havingAc, havingGps }
+            }
+            else {
+                my_car = { electriccar, havingAc, havingGps }
+            }
+            my_car = JSON.stringify(my_car)
+            output.innerHTML = my_car
+            my_car = JSON.parse(my_car)
+        }
+
+
+    
+
+</script>
+
+</body>
+</html> 
