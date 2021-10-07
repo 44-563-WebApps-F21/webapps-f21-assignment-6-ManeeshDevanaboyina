@@ -64,11 +64,17 @@ function resolveForm (){
                 tags.innerHTML = "Phrase Correct count = "+correct;
             }
             else{
+                if (wrong > 2) {
+                    alert("Account Locked!Please try again");
+                    tagged.innerHTML = "Account is locked. Please try again after few minutes!";
+                }
+            else{
                 wrong = wrong+1;
                 alert("Access Denied");
                 tags.innerHTML = "Phrase Wrong count = "+wrong;
             }
         }
+    }
     </script>
 
     <div class="container">       
