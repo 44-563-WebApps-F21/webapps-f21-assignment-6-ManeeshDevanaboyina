@@ -1,44 +1,44 @@
 <!DOCTYPE html>
 <html>
 <title>Using JavaScript</title>
- 
+
 <body>
 
     <h1>Pass phrase by Maneesh Devanaboyina</h1>
 
-<h2>Getting input</h2>
+    <h2>Getting input</h2>
 
-<form>
-    <label for="form1_age">What is your age </label>
-    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
+    <form>
+        <label for="form1_age">What is your age </label>
+        <input type="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
 
-    <label for="form1_nick">What is your nickname </label>
-    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
+        <label for="form1_nick">What is your nickname </label>
+        <input type="text" id="form1_nick" name="form1_nick" autofocus> <br>
 
-    <input type="button" onclick="resolveForm()" value="Get values from form">
-</form>
+        <input type="button" onclick="resolveForm()" value="Get values from form">
+    </form>
 
 
-<p id="result">This text will be replaced </p>
+    <p id="result">This text will be replaced </p>
 
-<script> 
+    <script>
 
-function resolveForm (){
-    console.log("Getting form values")
-    age = document.getElementById("form1_age").value
-    nick = document.getElementById("form1_nick").value
-    confirmed = confirm("Are these the values? "+age+" and "+nick)
-    
-    out = document.getElementById("result")
-    if(confirmed){
-        out.innerHTML = "Values were confirmed"
-    } else {
-        out.innerHTML = "Values were not confirmed"
-    }
-}
-</script>
+        function resolveForm() {
+            console.log("Getting form values")
+            age = document.getElementById("form1_age").value
+            nick = document.getElementById("form1_nick").value
+            confirmed = confirm("Are these the values? " + age + " and " + nick)
 
-<form>
+            out = document.getElementById("result")
+            if (confirmed) {
+                out.innerHTML = "Values were confirmed"
+            } else {
+                out.innerHTML = "Values were not confirmed"
+            }
+        }
+    </script>
+
+    <form>
         <label for="secretPhrase_form">Enter the secret phrase</label>
         <input type="password" id="secretPhrase_form" name="secretPhrase_form" value="Let me in"> <br>
 
@@ -54,69 +54,70 @@ function resolveForm (){
         let correct = 0;
         let wrong = 0;
 
-        function processPhrase(){
+        function processPhrase() {
             phraseSecret = document.getElementById("secretPhrase_form").value
             phraseGuess = document.getElementById("phraseToCheck_form").value
             tagged = document.getElementById("tags")
-            if(phraseSecret === phraseGuess){
-                correct = correct+1;
+            if (phraseSecret === phraseGuess) {
+                correct = correct + 1;
                 alert("Access allowed");
-                tags.innerHTML = "Phrase Correct count = "+correct;
+                tags.innerHTML = "Phrase Correct count = " + correct;
             }
-            else{
+            else {
                 if (wrong > 2) {
                     alert("Account Locked!Please try again");
                     tagged.innerHTML = "Account is locked. Please try again after few minutes!";
                 }
-            else{
-                wrong = wrong+1;
-                alert("Access Denied");
-                tags.innerHTML = "Phrase Wrong count = "+wrong;
+                else {
+                    wrong = wrong + 1;
+                    alert("Access Denied");
+                    tags.innerHTML = "Phrase Wrong count = " + wrong;
+                }
             }
         }
-    }
     </script>
 
-    <div class="container">       
-        <img src="Alpaca.jpg" alt="Alpaca"  id="addingImage"  width="200" height="200" onclick="newImage()">
+    <div class="container">
+        <img src="Alpaca.jpg" alt="Alpaca" id="addingImage" width="200" height="200" onclick="newImage()">
         <p id="value">Images will change above</p>
     </div>
 
-        <script>
-            let usingImage=1;
+    <script>
+        let usingImage = 1;
 
-            function newImage(){
+        function newImage() {
 
-                let changedValue=document.getElementById("value")
+            let changedValue = document.getElementById("value")
 
-                switch(usingImage){
-                    
-                    case 1:
-                            
-                       document.getElementById("addingImage").src="Alpaca.jpg";
-                       changedValue.innerHTML="Click Number: " + usingImage;
-                        break;
+            switch (usingImage) {
 
-                    case 2:
-                        
-                        document.getElementById("addingImage").src="Albatross.jpg";
-                        changedValue.innerHTML="Click Number: " + usingImage;                        
-                         break;
-                    
-                    case 3:
+                case 1:
 
-                        document.getElementById("addingImage").src="Newt.jpg";
-                        changedValue.innerHTML="Click Number: " + usingImage;  
-                        usingImage=0;
-                        break;
-                }
+                    document.getElementById("addingImage").src = "Alpaca.jpg";
+                    changedValue.innerHTML = "Click Number: " + usingImage;
+                    break;
 
-                usingImage++;
+                case 2:
+
+                    document.getElementById("addingImage").src = "Albatross.jpg";
+                    changedValue.innerHTML = "Click Number: " + usingImage;
+                    break;
+
+                case 3:
+
+                    document.getElementById("addingImage").src = "Newt.jpg";
+                    changedValue.innerHTML = "Click Number: " + usingImage;
+                    usingImage = 0;
+                    break;
             }
-        </script>
 
-    
+            usingImage++;
+        }
+    </script>
+
+
 
 
 </body>
-</html> 
+
+</html>
